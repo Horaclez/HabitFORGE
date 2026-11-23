@@ -1,0 +1,60 @@
+{
+  "name": "habitforge",
+  "productName": "HabitForge",
+  "version": "1.0.0",
+  "description": "HABITFORGE — Constancia elástica y progresión RPG",
+  "author": "HabitForge",
+  "main": "electron/main.js",
+  "scripts": {
+    "prepare:web": "node scripts/prepare.js",
+    "start": "npm run prepare:web && electron .",
+    "dist:win": "npm run prepare:web && electron-builder --win nsis --publish never"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.2.0",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/local-notifications": "^6.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@fontsource/outfit": "^5.1.0",
+    "@fontsource/plus-jakarta-sans": "^5.1.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "lucide": "0.383.0"
+  },
+  "build": {
+    "appId": "com.habitforge.app",
+    "productName": "HabitForge",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**",
+      "www/**",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "artifactName": "HabitForge-Setup-${version}.exe"
+    }
+  }
+}

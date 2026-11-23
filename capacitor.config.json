@@ -1,0 +1,6 @@
+{
+  "appId": "com.habitforge.app",
+  "appName": "HabitForge",
+  "webDir": "www",
+  "android": { "backgroundColor": "#050507" }
+}
